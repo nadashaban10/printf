@@ -16,3 +16,18 @@ long int convert_size_digit(long int number, int size)
 
 	return ((int)number);
 }
+
+/**
+ *convert_size_digit_unsigned - casting numbers and specify
+ *@number: number will cast
+ *@size_digit: the indicition type to cast
+ *Return: casted number
+ */
+long int convert_size_digit_unsigned(unsigned long int number, int size_digit)
+{
+	if (size_digit == S_LONG)
+		return (number);
+	else if (size_digit == S_SHORT)
+		return ((unsigned short)number);
+	return ((unsigned int)number);
+}

@@ -26,8 +26,8 @@ int char_func(va_list cases, char buffer[], int flag, int s_width, int precision
 int string_func(va_list cases, char buffer[], int flag, int s_width, int precision, int s_size);
 
 
-
-
+int is_print(char c);
+int hexa_num(char asc_code, char buffer[], int x);
 
 int num_func(va_list cases, char buffer[]);
 int binary_func(va_list cases, char buffer[]);
