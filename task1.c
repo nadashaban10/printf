@@ -16,7 +16,7 @@ int print_i(va_list cases, char buffer[], int f, int w, int p, int s)
 	long int n = va_arg(cases, long int);
 	unsigned long int number;
 
-	n = convert_size_number(n, s);
+	n = convert_size_digit(n, s);
 
 	if (n == 0)
 		buffer[x--] = '\0';
