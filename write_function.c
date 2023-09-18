@@ -51,7 +51,7 @@ int write_numb(int index, char buffer[], int f, int w,
 				buffer[--index] = ext_c;
 			return (write(1, &buffer[index], len) + write(1, &buffer[1], i - 1));
 		}
-		else if (!(f & F_MINUS) && pading == '')
+		else if (!(f & F_MINUS) && pading == ' ')
 		{
 			if (ext_c)
 				buffer[--index] = ext_c;
@@ -60,7 +60,7 @@ int write_numb(int index, char buffer[], int f, int w,
 		else if (!(f & F_MINUS) && pading == '0')
 		{
 			if (ext_c)
-				buffer[--paning_start] = ext_c;
+				buffer[--pading_start] = ext_c;
 			return (write(1, &buffer[pading_start], i - pading_start) +
 					write(1, &buffer[index], len - (1 - pading_start)));
 		}

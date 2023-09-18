@@ -10,8 +10,10 @@
 int char_func(va_list cases, char buffer[])
 {
 	char c;
-
+	UNUSED buffer;
+	UNUSED cases;
 	c = va_arg(cases, int);
+
 	return (write_char_(c, buffer));
 }
 
