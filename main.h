@@ -35,4 +35,5 @@ int write_digit(int is_negative, int index, char buffer[],
 int write_numb(int index, char buffer[], int f, int w,
 		int p, int len, char pading, char ext_c);
 long int convert_size_digit(long int number, int size);
+int is_fun_digit(char x);
 #endif
