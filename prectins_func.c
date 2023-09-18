@@ -27,7 +27,7 @@ int g_precision(const char *formats, int *x, va_list cases)
 			precision = va_arg(cases, int);
 			break;
 		}
-		else 
+		else
 			break;
 	}
 

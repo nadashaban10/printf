@@ -33,13 +33,10 @@ int num_func(va_list cases, char buffer[]);
 int binary_func(va_list cases, char buffer[]);
 void buffer_print(char buffer[], int *index_buffer); /*using in printf file*/
 int write_digit(int is_negative, int index, char buffer[], int f, int w, int p, int s);
-int write_char_(char c, char buffer[]);
+int write_char_(char c, char buffer[], int f, int w, int p, int s);
 int write_numb(int index, char buffer[], int f, int w, int p, int len, char pading, char ext_c);
 int print_i(va_list cases, char buffer[], int f, int w, int p, int s);
-int write_digit(int is_negative, int index, char buffer[],
-		int f, int w, int p, int s);
-int write_numb(int index, char buffer[], int f, int w,
-		int p, int len, char pading, char ext_c);
+
 long int convert_size_digit(long int number, int size);
 int is_fun_digit(char x);
 int get_w(const char *format, int *x, va_list arr);
