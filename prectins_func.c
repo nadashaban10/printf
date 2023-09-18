@@ -16,7 +16,7 @@ int g_precision(const char *formats, int *x, va_list cases)
 	precision = 0;
 	for (current_i = current_i + 1; formats[current_i] != '\0'; current_i++)
 	{
-		if (is_digit(formats[current_i]))
+		if (is_fun_digit(formats[current_i]))
 		{
 			precision *= 10;
 			precision += formats[current_i] - '0';

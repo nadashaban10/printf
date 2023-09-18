@@ -20,9 +20,15 @@
 /* FUNTION PROTOTYPES */
 
 int _printf(const char *format, ...);
-int char_func(va_list cases, char buffer[]);
-int str_func(va_list cases, char buffer[]);
-int percentage_func(va_list cases, char buffer[]);
+
+int percentage_func(va_list cases, char buffer[], int flag, int s_width, int precision, int s_size);
+int char_func(va_list cases, char buffer[], int flag, int s_width, int precision, int s_size);
+int string_func(va_list cases, char buffer[], int flag, int s_width, int precision, int s_size);
+
+
+
+
+
 int num_func(va_list cases, char buffer[]);
 int binary_func(va_list cases, char buffer[]);
 void buffer_print(char buffer[], int *index_buffer); /*using in printf file*/
