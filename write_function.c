@@ -11,34 +11,18 @@
  * @s:size
  * Return:number that we print.
  */
-int write_digit(int is_negative, int index, char buffer[],
-	       int f, int w, int p, int s)
+int write_digit(int is_negative, int index, char buffer[])
 {
 	int len = BUFF_SIZE - index - 1;
-	char pading = '', ext_ch = 0;
 
-	UNUSED(s);
+	UNUSED buffer;
 
-	if ((f & F_ZERO) && !(f && F_MINUS))
-		pading = '0';
-	if (is_negative)
-		ext_ch = '-';
-	else if (f & F_PLUS)
-		ext_ch = '+';
-	else if (f & F_SPACE)
-		ext_ch = '';
-	return (write_numb(index, buffer, f, w, p, len, pading, ext_ch));
+	return (write_numb(index, buffer));
 }
 /**
  * write_numb - function to write number
  * @index:charachter
  * @buffer:an array
- * @f:flages
- * @w:width
- * @p:precision
- * @len:length
- * @pading:char of pading
- * @ext_c:char of extra
  * Return:numer to print
  */
 int write_numb(int index, char buffer[], int f, int w,
@@ -84,6 +68,7 @@ int write_numb(int index, char buffer[], int f, int w,
 			buffer[--index] = ext_c;
 		return (write(1, &buffer[index], len));
 	}
+<<<<<<< HEAD
 }
 /**
  * write_char_ - print a string
@@ -100,3 +85,6 @@ int write_char_(char c, char buffer[])
 
 	return (write(1, &buffer[0], 1));
 }
+=======
+
+>>>>>>> f4bdff1ab6602ea884e36f5d5a6ccb351b999f51
