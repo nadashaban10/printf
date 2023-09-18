@@ -85,3 +85,18 @@ int write_numb(int index, char buffer[], int f, int w,
 		return (write(1, &buffer[index], len));
 	}
 }
+/**
+ * write_char_ - print a string
+ * @c:character
+ * @buffer:an array
+ * Return:a string.
+ */
+int write_char_(char c, char buffer[])
+{
+	int i = 0;
+
+	buffer[i++] = c;
+	buffer[i] = '\0';
+
+	return (write(1, &buffer[0], 1));
+}
