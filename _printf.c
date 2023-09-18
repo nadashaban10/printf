@@ -6,14 +6,7 @@
  *@index_buffer: index to calculate the buffer
  */
 
-void buffer_print(char buffer[], int *index_buffer)
-{
-	if (*index_buffer > 0)
-		write(1, &buffer[0], *index_buffer);
-	*index_buffer = 0;  /*i think its zero to free the memory */
-
-
-}
+void buffer_print(char buffer[], int *index_buffer);
 
 /**
  *_printf - function that print anything
@@ -36,7 +29,7 @@ int _printf(const char *format, ...)
 	{
 		if (format[i] != '%')
 		{
-			buffer[index_buffer] = format[i];
+			buffer[index_buffer++] = format[i];
 			if (index_buffer == BUFF_SIZE)
 			{
 				buffer_print(buffer, &index_buffer);
@@ -50,8 +43,4 @@ int _printf(const char *format, ...)
 		}
 		return (ind_printed_c);
 	}
-<<<<<<< HEAD
-=======
-
->>>>>>> f4bdff1ab6602ea884e36f5d5a6ccb351b999f51
 }

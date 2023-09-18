@@ -12,7 +12,7 @@ int char_func(va_list cases, char buffer[])
 	char c;
 
 	c = va_arg(cases, int);
-	return (write_char_(c, buffer));	/*func isn't craet yet!*/
+	return (write_char_(c, buffer));
 }
 
 /**
@@ -24,8 +24,7 @@ int char_func(va_list cases, char buffer[])
 
 int percentage_func(va_list cases, char buffer[])
 {
-	UNUSED(cases);
-	UNUSED(buffer);
+	
 	return (write(1, "%%", 1));
 }
 
@@ -44,7 +43,7 @@ char *str;
 
 leng = 0;
 str = va_arg(cases, char *);
-UNUSED(buffer);
+
 while (str[leng] != '\0')
 	leng++;
 
