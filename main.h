@@ -14,7 +14,7 @@ int str_func(va_list case, char buffer[]);
 int percentage_func(va_list case, char buffer[]);
 int num_func(va_list case, buffer[]);
 int binary_func(va_list case, buffer[]);
-
+void buffer_print(char buffer[], int *index_buffer); /*using in printf file*/
 
 
 
