@@ -11,18 +11,34 @@
  * @s:size
  * Return:number that we print.
  */
-int write_digit(int is_negative, int index, char buffer[])
+int write_digit(int is_negative, int index, char buffer[],
+		int f, int w, int p, int s)
 {
 	int len = BUFF_SIZE - index - 1;
+	char pading = ' ', ext_c = 0;
 
-	UNUSED buffer;
+	UNUSED(s);
+	if ((f & F_ZERO) && !(f & F_MINUS))
+		pading = '0';
+	if (is_negative)
+		ext_c = '-';
+	else if (f & F_PLUS)
+		ext_c = '+';
+	else if (f & F_SPACE)
+		ext_c = ' ';
 
-	return (write_numb(index, buffer));
+	return (write_numb(index, buffer, f, w, p, len, ext_c));
 }
 /**
  * write_numb - function to write number
  * @index:charachter
  * @buffer:an array
+ * @f:flages
+ * @w:width
+ * @p:precision
+ * @len:length
+ * @pading:char
+ * @ext_c:extra char
  * Return:numer to print
  */
 int write_numb(int index, char buffer[], int f, int w,
@@ -73,15 +89,38 @@ int write_numb(int index, char buffer[], int f, int w,
  * write_char_ - print char
  * @c:character
  * @buffer:an array
+ * @f:flages
+ * @w:width
+ * @p:precision
+ * @s:size
  * Return:a char
  */
-int write_char_(char c, char buffer[])
+int write_char_(char c, char buffer[], int f, int w, int p, int s)
 {
-	int i = 0;
+	int x = 0;
+	int pading = ' ';
 
-	buffer[i++] = c;
-	buffer[i] = '\0';
+	UNUSED(p);
+	UNUSED(s);
+
+	if (f & F_ZERO)
+		pading = '0';
+
+	buffer[x++] = c;
+	buffer[x] = '\0';
+
+	if (w > 1)
+	{
+		buffer[BUFF_SIZE - 1] = '\0';
+		for (x = 0 ; x < w - 1 ; x++)
+			buffer[BUFF_SIZE - x - 2] = pading;
+		if (f & F_MINUS)
+			return (write(1, &buffer[0], 1) +
+					write(1, &buffer[BUFF_SIZE - x - 1], w - 1));
+		else
+			return (write(1, &buffer[BUFF_SIZE - x - 1], w - 1) +
+					write(1, &buffer[0], 1));
+	}
 
 	return (write(1, &buffer[0], 1));
 }
-
