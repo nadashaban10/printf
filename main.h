@@ -36,4 +36,6 @@ int write_numb(int index, char buffer[], int f, int w,
 		int p, int len, char pading, char ext_c);
 long int convert_size_digit(long int number, int size);
 int is_fun_digit(char x);
+int get_w(const char *format, int *x, va_list arr);
+int get_s(const char *format, int *x);
 #endif
