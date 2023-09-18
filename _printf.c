@@ -50,5 +50,8 @@ int _printf(const char *format, ...)
 		}
 		return (ind_printed_c);
 	}
+<<<<<<< HEAD
+=======
 
+>>>>>>> f4bdff1ab6602ea884e36f5d5a6ccb351b999f51
 }
