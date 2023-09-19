@@ -77,8 +77,13 @@ if (string == NULL)
 }
 while (string[leng] != '\0')
 	leng++;
-if (precision >= 0 && precision < leng)
+if (precision >= 0)
+{
+	(precision < leng);
+	{
 	leng = precision;
+	}
+}
 	if (s_width > leng)
 {
 	if (flag & F_MINUS)
@@ -96,5 +101,27 @@ if (precision >= 0 && precision < leng)
 	return (s_width);
 	}
 }
-	return (write(1, string, leng));
+
+/**guards*/
+if (s_width <= 0)
+{
+	return (-1);
+}
+return (0);
+}
+
+
+
+
+/*
+ * buffer_print - maybe will print
+ * @buffer:an array
+ * @index_buffer:it is buffer index
+ */
+void buffer_print(char buffer[],int *index_buffer)
+{
+        if (*index_buffer > 0)
+        {
+                write(1, &buffer[0], *index_buffer);
+        *index_buffer = 0 ;
 }

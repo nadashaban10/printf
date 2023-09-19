@@ -1,7 +1,4 @@
 #include "main.h"
-
-void buffer_print(char buffer[], int *index_buffer);
-
 /**
  *_printf - function that print anything
  *@format: constant input format
@@ -12,7 +9,7 @@ int _printf(const char *format, ...)
 	int i;
 	int index_buffer = 0;
 	int ind_printed;
-	int ind_printed_c;
+	int ind_printed_c = 0;
 	va_list list;
 	int flag;
 	int s_width;
@@ -45,6 +42,7 @@ int _printf(const char *format, ...)
 				ind_printed = handle_fun_print(format, &i, list, buffer, flag, s_width, 
 						precision, s_size);
 					if (ind_printed == -1)
+					{
 						return (-1);
 						ind_printed_c = ind_printed_c + ind_printed;
 			}	
@@ -54,14 +52,4 @@ int _printf(const char *format, ...)
 		return (ind_printed_c);
 
 }
-/**
- * buffer_print - maybe will print
- * @buffer:an array
- * @index_buffer:it is buffer index
- */
-void buffer_print(char buffer[],int *index_buffer)
-{
-	if (*index_buffer > 0)
-		write(1, &buffer[0], *index_buffer);
-	*index_buffer = 0;
 }
