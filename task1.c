@@ -30,7 +30,7 @@ int print_i(va_list cases, char buffer[], int f, int w, int p, int s)
 	while (n > 0)
 	{
 		buffer[x--] = (number % 10) + '0';
-		number / 10;
+		number /= 10;
 	}
 	x++;
 	return (write_digit(is_neg, x, buffer, f, w, p, s));
