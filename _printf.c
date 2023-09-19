@@ -11,10 +11,6 @@ int _printf(const char *format, ...)
 	int ind_printed;
 	int ind_printed_c = 0;
 	va_list list;
-	int flag;
-	int s_width;
-	int precision;
-	int s_size;
 	char buffer[BUFF_SIZE];
 
 	if (format == NULL)
@@ -26,40 +22,31 @@ int _printf(const char *format, ...)
 		{
 			buffer[index_buffer++] = format[i];
 			if (index_buffer == BUFF_SIZE)
+			{
 				buffer_print(buffer, &index_buffer);
-			ind_printed_c++;
-				ind_printed_c++;
+				ind_printed_c += index_buffer;
+			}
 		}
 		else
 		{
-			buffer_print(buffer, &index_buffer);
-			flag = g_flag(format, &i);
-			s_width = get_w(format, &i, list);
-			precision = g_precision(format, &i, list);
-			s_size = get_s(format, &i);
 			i++;
-			ind_printed = handle_fun_print(format, &i, list, buffer, flag, s_width,
-					precision, s_size);
-			if (ind_printed == -1)
-				return (-1);
-			ind_printed_c = ind_printed_c + ind_printed;
-			i++;
-			ind_printed = handle_fun_print(format, &i, list, buffer, flag, s_width,
-					precision, s_size);
-			if (ind_printed == -1)
+			if (format[i] == 'c')
 			{
-				return (-1);
-				ind_printed_c = ind_printed_c + ind_printed;
-				i++;
-				ind_printed = handle_fun_print(format, &i, list, buffer, flag, s_width,
-						precision, s_size);
-					if (ind_printed == -1)
-						return (-1);
-					ind_printed_c = ind_printed_c + ind_printed;
+				char c = va_arg(list, int);
+				ind_printed_c += char_func(c, buffer, &index_buffer);
+			}
+			else if (format[i] == 's')
+			{
+				char *str = va_arg(list, char *);
+				ind_printed_c += string_func(str, buffer, &index_buffer);
+			}
+			else if (format[i] == '%')
+			{
+				ind_printed_c += percentage_func(buffer, &index);
 			}
 		}
-		buffer_print(buffer, &index_buffer);
-		va_end(list);
 	}
-		return (ind_printed_c);
+	buffer_print(buffer, &index_buffer);
+	va_end(list);
+	return (ind_printed_c);
 }

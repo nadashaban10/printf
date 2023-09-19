@@ -3,10 +3,6 @@
  *char_func - function that print a char
  *@cases: list of argu
  *@buffer: array buffer
- *@flag: get num of flags
- *@s_width: calculate width
- *@precision: precision specify
- *@s_size: size specefires
  *Return: number of char printed
  */
 
@@ -21,24 +17,14 @@ int char_func(va_list cases, char buffer[], int flag,
 }
 /**
  *percentage_func - funtion that print percent sign
- *@cases:list of argu
+ *@list:list of argu
  *@buffer:buffer array
- *@flag: get num of flags
- *@s_width: calculate width
- *@precision: precision specify
- *@s_size: size specefires
  *Return: number of char printed
  */
 
-int percentage_func(va_list cases, char buffer[],
-		int flag, int s_width, int precision, int s_size)
+int percentage_func(va_list list, char buffer[])
 {
-	UNUSED(cases);
-	UNUSED(buffer);
-	UNUSED(flag);
-	UNUSED(s_width);
-	UNUSED(precision);
-	UNUSED(s_size);
+	
 	return (write(1, "%%", 1));
 }
 
@@ -47,10 +33,6 @@ int percentage_func(va_list cases, char buffer[],
  *string_func - function that print length of char printed
  *@buffer: buffer array
  *@cases: list of argu
- *@flag: get num of flags
- *@s_width: calculate width
- *@precision: precision specify
- *@s_size: size specefires
  *Return: number of string printed
  */
 
