@@ -8,8 +8,8 @@
 int _putchar(char c);
 int char_func(va_list list, char buffer[]);
 int percentage_func(va_list list, char buffer[]);
+int _printf(const char *format, ...);
 void buffer_print(char buffer[], int *index_buffer);
-
 
 
 
