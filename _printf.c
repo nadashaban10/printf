@@ -28,7 +28,7 @@ int _printf(const char *format, ...)
 	{
 		if (format[i] != '%')
 		{
-			buffer[index_buffer++] = format[i];
+			setbuffer[index_buffer++] = format[i];
 			if (index_buffer == BUFF_SIZE)
 
 				ind_printed_c++;
@@ -41,7 +41,7 @@ int _printf(const char *format, ...)
 			precision = g_precision(format, &i, list);
 			s_size = get_s(format, &i);
 				i++;
-				ind_printed = handle_func_print(format, &i, list, buffer, flag, s_width, 
+				ind_printed = handle_fun_print(format, &i, list, buffer, flag, s_width, 
 						precision, s_size);
 					if (ind_printed == -1)
 						return (-1);
