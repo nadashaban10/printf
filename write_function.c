@@ -27,7 +27,7 @@ int write_digit(int is_negative, int index, char buffer[],
 	else if (f & F_SPACE)
 		ext_c = ' ';
 
-	return (write_numb(index, buffer, f, w, p, len, ext_c));
+	return (write_numb(index, buffer, f, w, p, len, pading, ext_c));
 }
 /**
  * write_numb - function to write number
