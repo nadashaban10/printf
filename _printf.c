@@ -34,7 +34,6 @@ int _printf(const char *format, ...)
 =======
 
 				ind_printed_c++;
->>>>>>> 76702783f0fd9588a7ece3dfe192ea95a27ddfad
 		}
 		else
 		{
@@ -43,15 +42,12 @@ int _printf(const char *format, ...)
 			s_width = get_w(format, &i, list);
 			precision = g_precision(format, &i, list);
 			s_size = get_s(format, &i);
-<<<<<<< HEAD
 			i++;
 			ind_printed = handle_fun_print(format, &i, list, buffer, flag, s_width,
 					precision, s_size);
 			if (ind_printed == -1)
 				return (-1);
 			ind_printed_c = ind_printed_c + ind_printed;
-=======
-<<<<<<< HEAD
 			i++;
 			ind_printed = handle_fun_print(format, &i, list, buffer, flag, s_width, 
 					precision, s_size);
