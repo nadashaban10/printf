@@ -12,7 +12,7 @@
 
 
 int char_func(va_list cases, char buffer[], int flag,
-int s_width, int precision, int s_size)
+		int s_width, int precision, int s_size)
 {
 	char c;
 
@@ -33,7 +33,7 @@ int s_width, int precision, int s_size)
  */
 
 int percentage_func(va_list cases, char buffer[],
-int flag, int s_width, int precision, int s_size)
+		int flag, int s_width, int precision, int s_size)
 {
 	UNUSED(cases);
 	UNUSED(buffer);
@@ -57,7 +57,7 @@ int flag, int s_width, int precision, int s_size)
 */
 
 int string_func(va_list cases, char buffer[],
-int flag, int s_width, int precision, int s_size)
+		int flag, int s_width, int precision, int s_size)
 {
 int leng, index;
 char *string;

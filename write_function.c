@@ -84,7 +84,6 @@ int write_numb(int index, char buffer[], int f, int w,
 			buffer[--index] = ext_c;
 		return (write(1, &buffer[index], len));
 	}
-}
 /**
  * write_char_ - print char
  * @c:character
