@@ -18,6 +18,7 @@ int _printf(const char *format, ...)
 	int s_width;
 	int precision;
 	int s_size;
+	char buffer [BUFF_SIZE];
 
 
 	if (format == NULL)
@@ -28,7 +29,7 @@ int _printf(const char *format, ...)
 	{
 		if (format[i] != '%')
 		{
-			setbuffer[index_buffer++] = format[i];
+			buffer[index_buffer++] = format[i];
 			if (index_buffer == BUFF_SIZE)
 
 				ind_printed_c++;
