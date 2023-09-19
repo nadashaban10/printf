@@ -82,6 +82,7 @@ int write_numb(int index, char buffer[], int f, int w,
 			return (write(1, &buffer[pading_start], i - pading_start) +
 					write(1, &buffer[index], len - (1 - pading_start)));
 		}
+		}
 		if (ext_c)
 			buffer[--index] = ext_c;
 		return (write(1, &buffer[index], len));
@@ -220,5 +221,6 @@ int write_point(char buffer[], int index, int len, int w,
 	buffer[--index] = '0';
 	if (ext_c)
 		buffer[--index] = ext_c;
-}
+
 	return (write(1, &buffer[index], BUFF_SIZE - index - 1));
+	}
