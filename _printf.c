@@ -28,8 +28,13 @@ int _printf(const char *format, ...)
 		{
 			buffer[index_buffer++] = format[i];
 			if (index_buffer == BUFF_SIZE)
+<<<<<<< HEAD
+				buffer_print(buffer, &index_buffer);
+			ind_printed_c++;
+=======
 
 				ind_printed_c++;
+>>>>>>> 76702783f0fd9588a7ece3dfe192ea95a27ddfad
 		}
 		else
 		{
@@ -38,6 +43,14 @@ int _printf(const char *format, ...)
 			s_width = get_w(format, &i, list);
 			precision = g_precision(format, &i, list);
 			s_size = get_s(format, &i);
+			i++;
+			ind_printed = handle_fun_print(format, &i, list, buffer, flag, s_width,
+					precision, s_size);
+			if (ind_printed == -1)
+				return (-1);
+			ind_printed_c = ind_printed_c + ind_printed;
+=======
+<<<<<<< HEAD
 			i++;
 			ind_printed = handle_fun_print(format, &i, list, buffer, flag, s_width, 
 					precision, s_size);
@@ -53,7 +66,9 @@ int _printf(const char *format, ...)
 						return (-1);
 					ind_printed_c = ind_printed_c + ind_printed;
 			}	
+>>>>>>> 76702783f0fd9588a7ece3dfe192ea95a27ddfad
 		}
+	}
 		buffer_print(buffer, &index_buffer);
 
 		va_end(list);
@@ -61,4 +76,12 @@ int _printf(const char *format, ...)
 	}
 
 		return (ind_printed_c);
+<<<<<<< HEAD
+=======
 	}
+<<<<<<< HEAD
+=======
+>>>>>>> 014c2e30d86c27293aac9ba1621c8c220cde2309
+>>>>>>> 76702783f0fd9588a7ece3dfe192ea95a27ddfad
+}
+>>>>>>> e8fbeaa89d7092d040aed90cfcca5cfa702f9e8b
