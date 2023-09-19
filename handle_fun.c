@@ -1,7 +1,7 @@
 #include "main.h"
 /**
  * handle_fun_print - print our argu
- * @forma:this is format
+ * @fomt:this is format
  * @cases:list of argu
  * @index:int
  * @buffer:an array
@@ -12,7 +12,7 @@
  * Return:one or two
  * developed by soria
  */
-int handle_fun_print(const char *forma, int *index, va_list cases,
+int handle_fun_print(const char *fomt, int *index, va_list cases,
 		char buffer[], int f, int w, int p, int s)
 {
 	int x, u_len = 0, p_char = -1;
@@ -29,7 +29,7 @@ int handle_fun_print(const char *forma, int *index, va_list cases,
 			return (-1);
 		u_len += write(1, "%%", 1);
 		if (fomt[*index - 1] == ' ')
-			u_len += write(1, ' ', 1);
+			u_len += write(1, " ", 1);
 		else if (w)
 		{
 			--(*index);
