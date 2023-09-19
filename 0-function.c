@@ -106,3 +106,15 @@ if (s_width <= 0)
 }
 return(0);
 }
+
+/**
+ * buffer_print - maybe will print
+ * @buffer:an array
+ * @index_buffer:it is buffer index
+ */
+void buffer_print(char buffer[],int *index_buffer)
+{
+	if (*index_buffer > 0)
+		write(1, &buffer[0], *index_buffer);
+	*index_puffer = 0;
+}
