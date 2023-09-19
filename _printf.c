@@ -1,11 +1,5 @@
 #include "main.h"
 
-/**
- *buffer_print - funtion that print the array
- *@buffer:  buffer array
- *@index_buffer: index to calculate the buffer
- */
-
 void buffer_print(char buffer[], int *index_buffer);
 
 /**
@@ -58,4 +52,15 @@ int _printf(const char *format, ...)
 		va_end(list);
 		return (ind_printed_c);
 
-} 
+}
+/**
+ * buffer_print - maybe will print
+ * @buffer:an array
+ * @index_buffer:it is buffer index
+ */
+void buffer_print(char buffer[],int *index_buffer)
+{
+	if (*index_buffer > 0)
+		write(1, &buffer[0], *index_buffer);
+	*index_buffer = 0;
+}
