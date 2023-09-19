@@ -17,10 +17,27 @@
 #define S_LONG 2
 #define S_SHORT 1
 
+/**
+ * sturct fomt - struct format
+ * @fomt:format
+ * @fun:functin s.
+ */
+struct fomt
+{
+	char fomt;
+	int (*fun)(va_list, char[], int, int, int, int);
+};
+/**
+ * typedef struct fomt fomt_t - operation of struct
+ * @fomt:theee format
+ * @fomt_t:our fun
+ */
+typedef struct fomt fomt_t;
+
 /* FUNTION PROTOTYPES */
 
 int _printf(const char *format, ...);
-
+int handle_fun_print(const char *forma, int *index, va_list cases, char buffer[], int f, int w, int p, int s);
 int percentage_func(va_list cases, char buffer[], int flag, int s_width, int precision, int s_size);
 int char_func(va_list cases, char buffer[], int flag, int s_width, int precision, int s_size);
 int string_func(va_list cases, char buffer[], int flag, int s_width, int precision, int s_size);
@@ -36,7 +53,8 @@ int write_digit(int is_negative, int index, char buffer[], int f, int w, int p, 
 int write_char_(char c, char buffer[], int f, int w, int p, int s);
 int write_numb(int index, char buffer[], int f, int w, int p, int len, char pading, char ext_c);
 int print_i(va_list cases, char buffer[], int f, int w, int p, int s);
-
+int write_point(char buffer[], int index, int len, int w, int f, char pading, char ext_c, int pading_start);
+int write_unsnum(int is_negative, int index, char buffer[], int f, int w, int p, int s);
 
 int g_precision(const char *formats, int *x, va_list cases);
 long int convert_size_digit(long int number, int size);
