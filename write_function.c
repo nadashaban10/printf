@@ -49,9 +49,9 @@ int write_numb(int index, char buffer[], int f, int w,
 	if (p == 0 && index == BUFF_SIZE - 2 && buffer[index] == '0' && w == 0)
 		return (0);
 	if (p == 0 && index == BUFF_SIZE - 2 && buffer[index] == '0')
-		buffer[index] = pading = '';
+		buffer[index] = pading = ' ';
 	if (p > 0 && p < len)
-		pading = '';
+		pading = ' ';
 	while (p > len)
 		buffer[--index] = '0', len++;
 	if (ext_c != 0)
@@ -61,7 +61,7 @@ int write_numb(int index, char buffer[], int f, int w,
 		for (i = 1 ; i < w - len + 1 ; i++)
 			buffer[i] = pading;
 		buffer[i] = '\0';
-		if (f & F_MINUS && pading == '')
+		if (f & F_MINUS && pading == ' ')
 		{
 			if (ext_c)
 				buffer[--index] = ext_c;
