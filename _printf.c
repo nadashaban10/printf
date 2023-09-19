@@ -28,10 +28,9 @@ int _printf(const char *format, ...)
 		{
 			buffer[index_buffer++] = format[i];
 			if (index_buffer == BUFF_SIZE)
-<<<<<<< HEAD
+
 				buffer_print(buffer, &index_buffer);
 			ind_printed_c++;
-=======
 
 				ind_printed_c++;
 		}
@@ -55,30 +54,21 @@ int _printf(const char *format, ...)
 			{
 				return (-1);
 				ind_printed_c = ind_printed_c + ind_printed;
-=======
+
 				i++;
 				ind_printed = handle_fun_print(format, &i, list, buffer, flag, s_width, 
 						precision, s_size);
 					if (ind_printed == -1)
 						return (-1);
 					ind_printed_c = ind_printed_c + ind_printed;
->>>>>>> 014c2e30d86c27293aac9ba1621c8c220cde2309
 			}	
->>>>>>> 76702783f0fd9588a7ece3dfe192ea95a27ddfad
 		}
-	}
+	
 		buffer_print(buffer, &index_buffer);
 
 		va_end(list);
-<<<<<<< HEAD
+
 	}
-	return (ind_printed_c);
-=======
 
 		return (ind_printed_c);
-<<<<<<< HEAD
-=======
-	}
->>>>>>> 014c2e30d86c27293aac9ba1621c8c220cde2309
->>>>>>> 76702783f0fd9588a7ece3dfe192ea95a27ddfad
-}
+		}
