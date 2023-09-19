@@ -100,11 +100,15 @@ if (s_width <= 0)
 {
 	return (-1);
 }
-return (0);
+return(0);
 }
 
 /**
+<<<<<<< HEAD
  * buffer_print - function printting buffer
+=======
+ * buffer_print - maybe will print
+>>>>>>> 9635c74ddeccf55c3bb411619ac41bfc6f4bd07c
  * @buffer:an array
  * @index_buffer:it is buffer index
  */
@@ -113,6 +117,11 @@ void buffer_print(char buffer[], int *index_buffer)
 	if (*index_buffer > 0)
 	{
 		write(1, &buffer[0], *index_buffer);
+<<<<<<< HEAD
 		*index_buffer = 0;
 	}
+=======
+	*index_puffer = 0;
+}
+>>>>>>> 9635c74ddeccf55c3bb411619ac41bfc6f4bd07c
 }
