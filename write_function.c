@@ -1,10 +1,6 @@
 #include "main.h"
 #include <unistd.h>
-#define BUFF_SIZE 128
 
-#ifndef F_MINUS
-#define F_MINUS (1 << 0)
-#endif
 /* write number */
 /**
  * write_digit - function print digits
