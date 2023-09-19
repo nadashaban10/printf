@@ -205,7 +205,7 @@ int write_point(char buffer[], int index, int len, int w,
 			buffer[--index] = '0';
 			if (ext_c)
 				buffer[--index] = ext_c;
-			return (write(1, &buffer[3], x-3) + write(1, &buffer[index], len));
+			return (write(1, &buffer[3], x - 3) + write(1, &buffer[index], len));
 		}
 		else if (!(f & F_MINUS) && pading == '0')
 		{

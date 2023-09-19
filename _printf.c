@@ -15,12 +15,10 @@ int _printf(const char *format, ...)
 	int s_width;
 	int precision;
 	int s_size;
-	char buffer [BUFF_SIZE];
-
+	char buffer[BUFF_SIZE];
 
 	if (format == NULL)
 		return (-1);
-
 	va_start(list, format);
 	for (i = 0; format && format[i] != '\0'; i++)
 	{
@@ -28,10 +26,8 @@ int _printf(const char *format, ...)
 		{
 			buffer[index_buffer++] = format[i];
 			if (index_buffer == BUFF_SIZE)
-
 				buffer_print(buffer, &index_buffer);
 			ind_printed_c++;
-
 				ind_printed_c++;
 		}
 		else
@@ -48,27 +44,22 @@ int _printf(const char *format, ...)
 				return (-1);
 			ind_printed_c = ind_printed_c + ind_printed;
 			i++;
-			ind_printed = handle_fun_print(format, &i, list, buffer, flag, s_width, 
+			ind_printed = handle_fun_print(format, &i, list, buffer, flag, s_width,
 					precision, s_size);
 			if (ind_printed == -1)
 			{
 				return (-1);
 				ind_printed_c = ind_printed_c + ind_printed;
-
 				i++;
-				ind_printed = handle_fun_print(format, &i, list, buffer, flag, s_width, 
+				ind_printed = handle_fun_print(format, &i, list, buffer, flag, s_width,
 						precision, s_size);
 					if (ind_printed == -1)
 						return (-1);
 					ind_printed_c = ind_printed_c + ind_printed;
-			}	
+			}
 		}
-	
 		buffer_print(buffer, &index_buffer);
-
 		va_end(list);
-
 	}
-
 		return (ind_printed_c);
 }
