@@ -198,6 +198,14 @@ int write_point(char buffer[], int index, int len, int w,
 				buffer[--index] = ext_c;
 			return (write(1, &buffer[index], len) + write(1, &buffer[3], x - 3));
 		}
+		else if (!(f & F_MINUS) && pading == ' ')
+		{
+			buffer[--index] = 'x';
+			buffer[--index] = '0';
+			if (ext_c)
+				buffer[--index] = ext_c;
+			return (write(1, &buffer[3], x-3) + write(1, &buffer[index], len));
+		}
 		else if (!(f & F_MINUS) && pading == '0')
 		{
 			if (ext_c)
