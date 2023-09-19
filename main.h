@@ -41,7 +41,7 @@ int handle_fun_print(const char *forma, int *index, va_list cases, char buffer[]
 int percentage_func(va_list cases, char buffer[], int flag, int s_width, int precision, int s_size);
 int char_func(va_list cases, char buffer[], int flag, int s_width, int precision, int s_size);
 int string_func(va_list cases, char buffer[], int flag, int s_width, int precision, int s_size);
-
+int write_digit(int is_negative, int index, char buffer[], int f, int w, int p, int s);
 
 int is_print(char c);
 int hexa_num(char asc_code, char buffer[], int x);

@@ -42,14 +42,14 @@ int _printf(const char *format, ...)
 				ind_printed = handle_fun_print(format, &i, list, buffer, flag, s_width, 
 						precision, s_size);
 					if (ind_printed == -1)
-					{
 						return (-1);
-						ind_printed_c = ind_printed_c + ind_printed;
+					ind_printed_c = ind_printed_c + ind_printed;
 			}	
 		}
 		buffer_print(buffer, &index_buffer);
-		va_end(list);
-		return (ind_printed_c);
 
-}
+		va_end(list);
+
+		return (ind_printed_c);
+	}
 }
