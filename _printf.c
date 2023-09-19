@@ -1,4 +1,5 @@
 #include "main.h"
+void buffer_print(char buffer, int *index_buffer);
 /**
  *_printf - function that print anything
  *@format: constant input format
