@@ -37,8 +37,11 @@ int write_char_(char c, char buffer[], int f, int w, int p, int s);
 int write_numb(int index, char buffer[], int f, int w, int p, int len, char pading, char ext_c);
 int print_i(va_list cases, char buffer[], int f, int w, int p, int s);
 
+
+int g_precision(const char *formats, int *x, va_list cases);
 long int convert_size_digit(long int number, int size);
 int is_fun_digit(char x);
 int get_w(const char *format, int *x, va_list arr);
 int get_s(const char *format, int *x);
+int g_flag(const char *formats, int *x);
 #endif

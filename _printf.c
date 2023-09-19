@@ -20,6 +20,11 @@ int _printf(const char *format, ...)
 	int ind_printed;
 	int ind_printed_c;
 	va_list list;
+	int flag;
+	int s_width;
+	int precision;
+	int s_size;
+
 
 	if (format == NULL)
 		return (-1);
@@ -31,16 +36,26 @@ int _printf(const char *format, ...)
 		{
 			buffer[index_buffer++] = format[i];
 			if (index_buffer == BUFF_SIZE)
-			{
-				buffer_print(buffer, &index_buffer);
+
 				ind_printed_c++;
 			}
 			else
 			{
-				buffer_print(buffer, &index_buffer);
-				va_end(list);
-			}
+			buffer_print(buffer, &index_buffer);
+			flag = g_flag(format, &i);
+			s_width = get_w(format, &i, list);
+			precision = g_precision(format, &i, list);
+			s_size = get_s(format, &i);
+				i++;
+				ind_printed = handle_func_print(format, &i, list, buffer, flag, s_width, 
+						precision, s_size);
+					if (ind_printed == -1)
+						return (-1);
+						ind_printed_c = ind_printed_c + ind_printed;
+			}	
 		}
+		buffer_print(buffer, &index_buffer);
+		va_end(list);
 		return (ind_printed_c);
-	}
-}
+
+} 
