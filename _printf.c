@@ -1,4 +1,8 @@
 #include "main.h"
+#include <stdio.h>
+#include <unistd.h>
+#include <stdarg.h>
+
 /**
  *_printf - function that print anything
  *@format: constant input format
@@ -33,16 +37,18 @@ int _printf(const char *format, ...)
 			if (format[i] == 'c')
 			{
 				char c = va_arg(list, int);
-				ind_printed_c += char_func(c, buffer, &index_buffer);
+				ind_printed_c += char_func(list, buffer);
 			}
-			else if (format[i] == 's')
-			{
-				char *str = va_arg(list, char *);
-				ind_printed_c += string_func(str, buffer, &index_buffer);
-			}
+			/**
+			* else if (format[i] == 's')
+			* {
+			*	char *str = va_arg(list, char *);
+			*	ind_printed_c += string_func(str, buffer, &);
+			*}
+			*/
 			else if (format[i] == '%')
 			{
-				ind_printed_c += percentage_func(buffer, &index);
+				ind_printed_c += percentage_func(list, buffer);
 			}
 		}
 	}
