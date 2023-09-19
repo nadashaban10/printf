@@ -212,5 +212,5 @@ int write_point(char buffer[], int index, int len, int w,
 	buffer[--index] = '0';
 	if (ext_c)
 		buffer[--index] = ext_c;
-	return (write(1, &buffer[index], BUFF_SIZE - index - 1));
 }
+	return (write(1, &buffer[index], BUFF_SIZE - index - 1));
