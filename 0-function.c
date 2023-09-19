@@ -10,7 +10,6 @@
  *Return: number of char printed
  */
 
-
 int char_func(va_list cases, char buffer[], int flag,
 		int s_width, int precision, int s_size)
 {
@@ -77,12 +76,10 @@ if (string == NULL)
 }
 while (string[leng] != '\0')
 	leng++;
-if (precision >= 0)
+if (precision >= 0 && precision < leng)
 {
-	(precision < leng);
-	{
 	leng = precision;
-	}
+	
 }
 	if (s_width > leng)
 {
@@ -124,4 +121,5 @@ void buffer_print(char buffer[],int *index_buffer)
         {
                 write(1, &buffer[0], *index_buffer);
         *index_buffer = 0 ;
+}
 }

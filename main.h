@@ -61,7 +61,7 @@ int is_fun_digit(char x);
 int get_w(const char *format, int *x, va_list arr);
 int get_s(const char *format, int *x);
 int g_flag(const char *formats, int *x);
-
+int write_char_(char c, char buffer[], int f, int w, int p, int s);
 void buffer_print(char buffer[], int *index_buffer);
 
 #endif
