@@ -23,28 +23,15 @@ int _printf(const char *format, ...)
 		{
 			format++;
 			if (*format == 'c')
-			{
 				count += printChar(args);
-			}
 			else if (*format == 's')
-			{
 				count += printStringSpecifier(args);
-			}
 			else if (*format == 'd' || *format == 'i')
-			{
-				int num = va_arg(args, int);
-
-				count += printInt(num);
-			}
+				int num = va_arg(args, int), count += printInt(num);
 			else if (*format == '%')
-			{
 				count += printPercent();
-			}
 			else if (*format == 'b')
-			{
-				unsigned int num = va_arg(args, unsigned int);
-				count += printbinary(num);
-			}
+				unsigned int num = va_arg(args, unsigned int), count += printbinary(num);
 		}
 		format++;
 	}
