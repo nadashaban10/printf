@@ -12,7 +12,6 @@ int _printf(const char *format, ...)
 	if (format == NULL)
 		return (-1);
 	va_start(args, format);
-
 	while (*format)
 	{
 		if (*format != '%')
@@ -30,6 +29,12 @@ int _printf(const char *format, ...)
 			else if (*format == 's')
 			{
 				count += printStringSpecifier(args);
+			}
+			else if (*format == 'd' || *format == 'i')
+			{
+				int num = va_arg(args, int);
+
+				count += printInt(num);
 			}
 			else if (*format == '%')
 			{

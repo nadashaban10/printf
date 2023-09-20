@@ -11,7 +11,7 @@ int printChar(va_list args);
 int printString(const char *str);
 int printStringSpecifier(va_list args);
 int _printf(const char *format, ...);
-
+int printInt(int num);
 
 
 
