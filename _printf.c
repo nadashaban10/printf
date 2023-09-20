@@ -1,8 +1,4 @@
 #include "main.h"
-#include <stdio.h>
-#include <unistd.h>
-#include <stdarg.h>
-
 /**
  *_printf - function that print anything
  *@format: constant input format
@@ -10,49 +6,39 @@
  */
 int _printf(const char *format, ...)
 {
-	int i;
-	int index_buffer = 0;
-	int ind_printed;
-	int ind_printed_c = 0;
-	va_list list;
-	char buffer[BUFF_SIZE];
+	va_list args;
+	int count = 0;
 
 	if (format == NULL)
 		return (-1);
-	va_start(list, format);
-	for (i = 0; format && format[i] != '\0'; i++)
+	va_start(args, format);
+
+	while (*format)
 	{
-		if (format[i] != '%')
+		if (*format != '%')
 		{
-			buffer[index_buffer++] = format[i];
-			if (index_buffer == BUFF_SIZE)
-			{
-				buffer_print(buffer, &index_buffer);
-				ind_printed_c += index_buffer;
-			}
+			_putchar(*format);
+			count++;
 		}
 		else
 		{
-			i++;
-			if (format[i] == 'c')
+			format++;
+			if (*format == 'c')
 			{
-				char c = va_arg(list, int);
-				ind_printed_c += char_func(list, buffer);
+				count += printChar(args);
 			}
-			/**
-			* else if (format[i] == 's')
-			* {
-			*	char *str = va_arg(list, char *);
-			*	ind_printed_c += string_func(str, buffer, &);
-			*}
-			*/
-			else if (format[i] == '%')
+			else if (*format == 's')
 			{
-				ind_printed_c += percentage_func(list, buffer);
+				count += printStringSpecifier(args);
+			}
+			else if (*format == '%')
+			{
+				count += printPercent();
 			}
 		}
+		format++;
 	}
-	buffer_print(buffer, &index_buffer);
-	va_end(list);
-	return (ind_printed_c);
+
+	va_end(args);
+	return (count);
 }

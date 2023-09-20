@@ -1,53 +1,69 @@
 #include "main.h"
 /**
- *char_func - function that print a char
- *@cases: list of argu
- *@buffer: array buffer
- *Return: number of char printed
+ *printChar - print char
+ *@args: argument
+ *Return: value
  */
-
-int char_func(va_list list, char buffer[])
+int printChar(va_list args)
 {
-	char c;
+	char c = va_arg(args, int);
 
-	c = va_arg(list, int);
 	_putchar(c);
 	return (1);
 }
+
 /**
- *percentage_func - funtion that print percent sign
- *@list:list of argu
- *@buffer:buffer array
- *Return: number of char printed
+ *printString - print string
+ *@str: argument
+ *Return: value
  */
 
-int percentage_func(va_list list, char buffer[])
+int printString(const char *str)
 {
-	_putchar ('%');	
-	return (1);
+	int i = 0;
+
+	if (str)
+	{
+		while (*str)
+		{
+			_putchar(*str);
+			str++;
+			i++;
+		}
+	}
+	else
+	{
+		const char *nullStr = "(null)";
+
+		while (*nullStr)
+		{
+			_putchar(*nullStr);
+			nullStr++;
+			i++;
+		}
+	}
+
+	return (i);
 }
 
-
 /**
- *string_func - function that print length of char printed
- *@buffer: buffer array
- *@cases: list of argu
- *Return: number of string printed
+ *printStringSpecifier - print str
+ *@args: argument
+ *Return: value
  */
-
-
-/**
- * buffer_print - function printting buffer
- * buffer_print - maybe will print
- * @buffer:an array
- * @index_buffer:it is buffer index
- */
-void buffer_print(char buffer[], int *index_buffer)
+int printStringSpecifier(va_list args)
 {
-	if (*index_buffer > 0)
-	{
-		write(1, &buffer[0], *index_buffer);
-		*index_buffer = 0;
-	}
-	*index_buffer = 0;
+	char *str = va_arg(args, char *);
+
+	return (printString(str));
+}
+
+/**
+ *printPercent - print percent
+ *Return: (1)
+ */
+int printPercent(void)
+{
+	_putchar('%');
+	return (1);
 }

@@ -2,14 +2,15 @@
 #define MAIN_H
 #include <stdio.h>
 #include <stdarg.h>
+#include <stddef.h>
 #include <unistd.h>
 
-#define BUFF_SIZE 1024
 int _putchar(char c);
-int char_func(va_list list, char buffer[]);
-int percentage_func(va_list list, char buffer[]);
+int printPercent(void);
+int printChar(va_list args);
+int printString(const char *str);
+int printStringSpecifier(va_list args);
 int _printf(const char *format, ...);
-void buffer_print(char buffer[], int *index_buffer);
 
 
 
