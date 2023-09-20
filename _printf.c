@@ -40,6 +40,11 @@ int _printf(const char *format, ...)
 			{
 				count += printPercent();
 			}
+			else if (*format == 'b')
+			{
+				unsigned int num = va_arg(args, unsigned int);
+				count += printbinary(num);
+			}
 		}
 		format++;
 	}
