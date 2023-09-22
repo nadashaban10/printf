@@ -4,11 +4,12 @@
  * num:unsigned int
  * Return:int number
  */
-int printbinary(unsigned int num)
+int printbinary(va_list args)
 {
 	unsigned int x, i, sum = 0;
 	unsigned int b[32];
 	int j = 0;
+	unsigned int num = va_arg(args, unsigned int);
 
 	x = 2147483648;
 	b[0] = num / x;

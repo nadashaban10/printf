@@ -12,7 +12,7 @@ int printString(const char *str);
 int printStringSpecifier(va_list args);
 int _printf(const char *format, ...);
 int printInt(int num);
-int printbinary(unsigned int num);
+int printbinary(va_list args);
 
 
 #endif
