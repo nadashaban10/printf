@@ -1,7 +1,7 @@
 #include "main.h"
 /**
  * printbinary - print binary num
- * num:unsigned int
+ * @args:args
  * Return:int number
  */
 int printbinary(va_list args)

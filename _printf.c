@@ -12,6 +12,7 @@ int _printf(const char *format, ...)
 	if (format == NULL)
 		return (-1);
 	va_start(args, format);
+
 	while (*format)
 	{
 		if (*format != '%')
@@ -33,13 +34,15 @@ int _printf(const char *format, ...)
 				count += printInt(num);
 			}
 			else if (*format == '%')
+			{
 				count += printPercent();
+			}
 			else if (*format == 'b')
 				count += printbinary(args);
 		}
 		format++;
 	}
-
 	va_end(args);
+
 	return (count);
 }
